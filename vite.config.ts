@@ -13,13 +13,6 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
 
-  // ✅ Add this preview section for Render deployment  
-  preview: {
-    allowedHosts: ["strategy-service-frontend.onrender.com"],
-    host: true,
-    port: 4173,
-  },
-
   plugins: [
     react(),
     mode === "development" && componentTagger()
@@ -29,7 +22,7 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
 
-      // Correct Buffer alias
+      // ✅ Correct Buffer alias
       buffer: "buffer/index.js",
 
       process: "process/browser",
