@@ -12,16 +12,21 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
 
+  // 🚀 IMPORTANT: Allow Render domain for preview mode
+  preview: {
+    allowedHosts: ["strategy-service-frontend.onrender.com"],
+  },
+
   plugins: [
     react(),
-    mode === "development" && componentTagger()
-  ].filter(Boolean),
+    // lovable-tagger removed completely
+  ],
 
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
 
-      // ✅ Correct Buffer alias
+      // Correct Buffer alias
       buffer: "buffer/index.js",
 
       process: "process/browser",
